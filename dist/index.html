@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BACKROOMS: A-SYNC // Kane Parsons Tribute</title>
+<link rel="icon" href="data:," />
+  <script type="module" crossorigin src="./assets/index-CgWh44O0.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DZk8Chbp.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- VHS overlays -->
+<div id="vhs-noise"></div>
+<div id="scanlines"></div>
+<div id="vignette"></div>
+<div id="tracking" class="hidden"></div>
+<div id="damage-flash"></div>
+
+<!-- VHS HUD -->
+<div id="vhs-hud">
+  <div id="rec"><span id="rec-dot"></span> REC</div>
+  <div id="timestamp">PM 11:47 &nbsp; JUN. 03 1991</div>
+  <div id="cam-label">A-SYNC RESEARCH — CAM 03</div>
+</div>
+
+<!-- Game HUD -->
+<div id="hud" class="hidden">
+  <div id="crosshair">+</div>
+  <div id="topbar">
+    <div id="zone-label">LEVEL 0 — The Lobby</div>
+    <div id="depth-label">DEPTH 0m</div>
+  </div>
+  <div id="toast" class="hidden"></div>
+  <div id="objective">FIND THE GLOWING EXIT DOOR &nbsp;·&nbsp; <span id="almond-count">0</span> ◈ ALMOND WATER</div>
+  <div id="bars">
+    <div class="bar-row"><span>STAMINA</span><div class="bar"><div id="stamina-fill"></div></div></div>
+    <div class="bar-row"><span>BATTERY</span><div class="bar"><div id="battery-fill"></div></div></div>
+    <div class="bar-row"><span>SANITY</span><div class="bar"><div id="sanity-fill"></div></div></div>
+  </div>
+  <div id="interact" class="hidden">[E] INTERACT</div>
+  <div id="hint">WASD move · SHIFT sprint · C crouch · F flashlight · E interact · M mute</div>
+  <div id="danger" class="hidden">⚠ SIGNAL INTERFERENCE — IT IS NEAR ⚠</div>
+</div>
+
+<!-- Title screen -->
+<div id="title">
+  <div id="title-inner">
+    <div id="async-logo">A-SYNC</div>
+    <div id="title-sub">LOW-PROPULSION RESEARCH DIVISION · 1991</div>
+    <h1>BACKROOMS</h1>
+    <p id="title-desc">On June 3rd 1991, an A-SYNC low-propulsion test opened a threshold into an infinite
+    non-Euclidean complex. Six researchers never returned.<br><br>
+    You are the seventh. Your camcorder is rolling.<br>
+    <em>Explore infinite room-types · document still lifes · descend · do not let it touch you.</em></p>
+    <div id="title-features">
+      <div>∞ PROCEDURAL LEVELS: Lobby / Concrete / Poolrooms / Maintenance / Async Labs</div>
+      <div>◈ STILL LIFES: chair circles, flooded atriums, vending rows, paper storms…</div>
+      <div>👁 LIFEFORM: it hears sprinting. It hates light. It never stops.</div>
+    </div>
+    <button id="play-btn">▶ ENTER THE BACKROOMS</button>
+    <div id="title-controls">Desktop · Mouse + WASD · Click locks pointer · Headphones recommended 🎧</div>
+    <div id="loading" class="hidden">GENERATING THRESHOLD…</div>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="pause" class="hidden">
+  <div class="panel">
+    <h2>SIGNAL PAUSED</h2>
+    <p>Pointer unlocked. Click resume to re-enter.</p>
+    <button id="resume-btn">RESUME</button>
+    <button id="restart-btn">RESTART (NEW SEED)</button>
+  </div>
+</div>
+
+<!-- Death -->
+<div id="death" class="hidden">
+  <div class="panel">
+    <h2 id="death-title">SIGNAL LOST</h2>
+    <p id="death-text">The lifeform made contact. Tape recovered by A-SYNC team.</p>
+    <p id="death-stats"></p>
+    <button id="retry-btn">↻ REWIND TAPE (RESPAWN)</button>
+  </div>
+</div>
+
+<!-- Descend flash -->
+<div id="descend" class="hidden"><div>DESCENDING…</div></div>
+
+</body>
+</html>
