@@ -1,0 +1,52 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#05060a;color:#e8e2d4;font-family:Georgia,'Times New Roman',serif;user-select:none}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hidden{display:none!important}
+/* ---------- HUD ---------- */
+#hud{position:fixed;inset:0;pointer-events:none;z-index:5}
+#stats{position:absolute;top:18px;left:18px;width:320px}
+.bar{position:relative;height:16px;background:rgba(0,0,0,.65);border:1px solid #8a7c5c;border-radius:3px;overflow:hidden;box-shadow:0 0 12px rgba(0,0,0,.8)}
+.bar.hp{height:20px}
+#hp-fill{height:100%;width:100%;background:linear-gradient(180deg,#c93a3a,#7d1212);transition:width .15s}
+#hp-text{position:absolute;inset:0;text-align:center;font-size:12px;line-height:20px;color:#fff;text-shadow:0 1px 2px #000}
+.bar.st{height:12px;margin-top:5px}
+#st-fill{height:100%;width:100%;background:linear-gradient(180deg,#3fae5a,#1c5c2c);transition:width .1s}
+#souls-row{margin-top:8px;font-size:20px;text-shadow:0 2px 4px #000;letter-spacing:1px}
+#soul-icon{color:#7df0ff;margin-right:6px}
+#grass-row{margin-left:14px;font-size:14px;color:#cfe8c0}
+#grass-row i{color:#9a9a9a;font-size:12px;font-style:normal}
+#boss-bar{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:min(640px,70vw);text-align:center}
+#boss-name{font-size:14px;letter-spacing:4px;color:#f0e6cc;text-shadow:0 0 12px #000,0 2px 3px #000;margin-bottom:6px}
+.bar.boss{height:12px;border-color:#a08c5a}
+#boss-fill{height:100%;width:100%;background:linear-gradient(180deg,#b89b4e,#6b4d12);transition:width .2s}
+#interact{position:absolute;bottom:24%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);border:1px solid #a08c5a;padding:10px 22px;border-radius:4px;font-size:16px}
+#message{position:absolute;bottom:30%;width:100%;text-align:center;font-size:26px;letter-spacing:6px;color:#f5edd8;text-shadow:0 0 18px #000,0 2px 4px #000;opacity:0;transition:opacity .4s}
+#lock-hint{position:absolute;top:58%;left:50%;transform:translateX(-50%);color:#ff5d5d;font-size:13px;letter-spacing:2px;text-shadow:0 1px 3px #000}
+#controls-help{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:12px;color:#bdb49c;background:rgba(0,0,0,.55);padding:6px 14px;border-radius:12px;white-space:nowrap;font-family:system-ui,sans-serif}
+#dmg-vignette{position:absolute;inset:0;box-shadow:inset 0 0 120px 60px rgba(180,0,0,.0);transition:box-shadow .2s;pointer-events:none}
+/* ---------- Title ---------- */
+#title{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 65%,rgba(20,26,40,.25),rgba(0,0,0,.72) 78%),linear-gradient(180deg,rgba(5,8,16,.15),rgba(0,0,0,.55))}
+.title-fog{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(120,130,150,.12),transparent 60%);animation:fogmove 7s ease-in-out infinite alternate}
+@keyframes fogmove{from{transform:translateX(-30px)}to{transform:translateX(30px)}}
+#title-inner{text-align:center;max-width:640px;padding:30px;position:relative}
+#title-kicker{letter-spacing:6px;font-size:12px;color:#9fb4d8;font-family:system-ui,sans-serif}
+#title h1{font-size:76px;letter-spacing:10px;font-weight:400;color:#efe6cf;text-shadow:0 0 40px rgba(150,170,220,.35),0 4px 8px #000;margin:10px 0 4px}
+#title h1 span{color:#8fa3c7}
+#title-sub{letter-spacing:5px;font-size:13px;color:#c9a86a;margin-bottom:18px;font-family:system-ui,sans-serif}
+#title-desc{font-size:15px;line-height:1.6;color:#c9c2ae;font-style:italic;margin-bottom:24px}
+#start-btn,#respawn-btn,#ng-btn{pointer-events:auto;cursor:pointer;font-family:Georgia,serif;font-size:20px;letter-spacing:3px;color:#f3ead2;background:linear-gradient(180deg,#2a2f3d,#12141c);border:1px solid #c9a86a;padding:14px 46px;border-radius:3px;transition:all .2s}
+#start-btn:hover,#respawn-btn:hover,#ng-btn:hover{background:linear-gradient(180deg,#3d4459,#1c2030);box-shadow:0 0 24px rgba(201,168,106,.4);transform:translateY(-1px)}
+#title-controls{margin-top:20px;font-size:12px;color:#8f8a78;font-family:system-ui,sans-serif}
+#title-note{margin-top:6px;font-size:11px;color:#5d594d;font-family:system-ui,sans-serif}
+/* ---------- Death / victory ---------- */
+#died,#victory{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0)}
+#died.show{background:rgba(10,0,0,.55)}
+#died-text{font-size:72px;letter-spacing:12px;color:#a31212;text-shadow:0 0 30px #000;opacity:0;transition:opacity 2s}
+#died.show #died-text{opacity:1}
+#died-sub{margin:14px 0 24px;color:#c9c2ae;font-style:italic}
+#victory{background:rgba(0,0,0,.55)}
+#victory-kicker{letter-spacing:6px;color:#c9a86a;font-size:13px;font-family:system-ui,sans-serif}
+#victory-text{font-size:64px;letter-spacing:10px;color:#f3ead2;text-shadow:0 0 40px rgba(201,168,106,.5);margin:8px 0}
+#victory-sub{color:#c9c2ae;margin-bottom:22px;font-style:italic}
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:15;background:rgba(0,0,0,.8);border:1px solid #c9a86a;color:#f3ead2;padding:10px 24px;border-radius:4px;font-style:italic;transition:opacity .4s}
+@media (max-width:700px){#title h1{font-size:44px}#controls-help{display:none}#stats{width:230px}}

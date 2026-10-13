@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demon Souls Remake — Boletarian Palace</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="stats">
+    <div class="bar hp"><div id="hp-fill"></div><span id="hp-text">100</span></div>
+    <div class="bar st"><div id="st-fill"></div></div>
+    <div id="souls-row"><span id="soul-icon">◈</span><span id="souls">0</span><span id="grass-row">🌿 <b id="grass">3</b> <i>[Q drink]</i></span></div>
+  </div>
+  <div id="boss-bar" class="hidden">
+    <div id="boss-name">TOWER KNIGHT — DEMON OF BOLETARIA</div>
+    <div class="bar boss"><div id="boss-fill"></div></div>
+  </div>
+  <div id="interact" class="hidden">Press <b>E</b> — <span id="interact-text"></span></div>
+  <div id="message"></div>
+  <div id="lock-hint" class="hidden">◎ LOCKED</div>
+  <div id="controls-help">
+    <b>WASD</b> move · <b>Mouse</b> camera · <b>LMB</b> attack · <b>Shift+LMB</b> heavy ·
+    <b>RMB</b> block · <b>Space</b> dodge · <b>Q</b> grass · <b>E</b> interact · <b>TAB / MMB</b> lock-on
+  </div>
+  <div id="dmg-vignette"></div>
+</div>
+
+<!-- Title screen -->
+<div id="title">
+  <div class="title-fog"></div>
+  <div id="title-inner">
+    <div id="title-kicker">A FAN REMAKE · BOLETARIAN PALACE</div>
+    <h1>DEMON <span>SOULS</span></h1>
+    <div id="title-sub">REMAKE &nbsp;·&nbsp; DESKTOP 3D ACTION RPG</div>
+    <p id="title-desc">The Old One stirs. Demons flood the palace. Cross the courtyard,
+    breach the fog gate, and slay the Tower Knight. Death is not the end — souls linger where you fell.</p>
+    <button id="start-btn" aria-label="Start Game">Start Game</button>
+    <div id="title-controls">WASD move · Mouse look (click to lock) · LMB attack · RMB block · Space roll · Q heal · E pray / enter fog</div>
+    <div id="title-note">Best on desktop · headphones recommended · procedural audio</div>
+  </div>
+</div>
+
+<!-- Death screen -->
+<div id="died" class="hidden">
+  <div id="died-text">YOU DIED</div>
+  <div id="died-sub"></div>
+  <button id="respawn-btn">Respawn at Archstone</button>
+</div>
+
+<!-- Victory screen -->
+<div id="victory" class="hidden">
+  <div id="victory-kicker">GREAT DEMON FELLED</div>
+  <div id="victory-text">DEMON SLAIN</div>
+  <div id="victory-sub"></div>
+  <button id="ng-btn">Begin Journey 2 (NG+)</button>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+<script type="module" src="js/game.js"></script>
+</body>
+</html>
